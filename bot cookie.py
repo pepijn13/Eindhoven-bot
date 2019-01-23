@@ -15,6 +15,7 @@ bypass_list = []
 
 
 
+
 @client.event
 async def on_message(message):
     if message.content.upper().startswith('!HELP'):
@@ -42,6 +43,6 @@ async def on_message(message):
          
 @client.event
 async def on_ready():
-    print ("je bot staat aan!!!!")         
+    print ("je bot staat aan!!!!")        
 
 client.run(os.getenv('TOKEN'))
