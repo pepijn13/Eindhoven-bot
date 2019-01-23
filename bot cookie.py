@@ -3,6 +3,8 @@ from discord.ext.commands import Bot
 from discord.ext import commands
 import asyncio
 import time
+import os
+import logging
 
 Client = discord.Client()
 client = commands.Bot (command_prefix = "!")
@@ -10,9 +12,6 @@ client = commands.Bot (command_prefix = "!")
 chat_filter = ["KANKER", "KUT", "KK", "KKR", "TYFUS", "TERING"]
 bypass_list = [] 
 
-@client.event
-async def on_ready():
-    print ("je bot staat aan!!!!")
 
 
 
@@ -41,6 +40,8 @@ async def on_message(message):
                 await client.delete_message(message)
                 await client.send_message(message.channel, "**ho, ho, doe a.u.b. een beetje rustig**")
          
-         
+@client.event
+async def on_ready():
+    print ("je bot staat aan!!!!")         
 
-client.run("NTM0MzM2NjQxNTQwODE2ODk2.Dx-VCw.Mz3kWDoOtLnPfGvvKGw1e_G5NyU")
+client.run(os.getenv('TOKEN'))
